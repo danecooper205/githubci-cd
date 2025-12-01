@@ -95,9 +95,11 @@ jobs:
         run: |
           docker exec $SERVICE_NAME \
             curl --silent --show-error --fail localhost:8080/health
+          
+          docker exec $SERVICE_NAME \
+             curl --show-error --fail localhost:8080
        #   docker exec  $SERVICE_NAME \
          #   curl --silent --show-error --fail localhost:8080/5df90eefcd59378085cff2ea688ff89b8bccb692
-          
 
       - name: Stop ${{ env.SERVICE_NAME}}
         run: docker stop $SERVICE_NAME
